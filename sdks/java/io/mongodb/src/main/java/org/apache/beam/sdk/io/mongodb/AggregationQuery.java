@@ -71,6 +71,6 @@ public abstract class AggregationQuery
         mongoDbPipeline().set(mongoDbPipeline().size() - 1, bucket());
       }
     }
-    return collection.aggregate(mongoDbPipeline()).iterator();
+    return collection.aggregate(mongoDbPipeline()).allowDiskUse(true).iterator();
   }
 }

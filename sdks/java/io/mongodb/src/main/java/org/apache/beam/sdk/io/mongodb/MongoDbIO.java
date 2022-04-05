@@ -669,7 +669,7 @@ public class MongoDbIO {
       BsonDocument bucketAuto = new BsonDocument("$bucketAuto", bucketAutoConfig);
       List<BsonDocument> aggregates = new ArrayList<>();
       aggregates.add(bucketAuto);
-      AggregateIterable<Document> buckets = mongoCollection.aggregate(aggregates);
+      AggregateIterable<Document> buckets = mongoCollection.aggregate(aggregates).allowDiskUse(true);
 
       for (Document bucket : buckets) {
         Document filter = new Document();
